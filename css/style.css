@@ -1,0 +1,215 @@
+body{
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#mainPageContent{
+    width: 600px;
+    text-align: center;
+}
+.mainContent{
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 3px;
+    padding: 40px 20px 40px 20px;
+    margin: 20px 0px 20px 0px;
+    background-color: ghostwhite;
+}
+.mainContentAlert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 3px;
+    padding: 40px 20px 40px 20px;
+    background-color: #ffd7d7;
+}
+#mainPage{
+    height: 100vh;
+}
+#userPanel{
+    height: 100vh;
+}
+#mainUserPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 3px;
+    padding: 40px 20px 40px 20px;
+    background-color: ghostwhite;
+}
+
+.messageWarning{
+    color:red;
+    align-self: center;
+    margin-top: -18px;
+}
+.signForm{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+}
+.signupForm{
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.logoutForm{
+    /* position: absolute; */
+    /* right: 20px; */
+    /* top: 20px; */
+    margin-top: 50px;
+}
+.logoutForm>input[type="submit"]{
+    padding: 10px;
+    background-color: rgb(255, 191, 191);
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.logoutForm>input[type="submit"]:hover{
+    background-color: lightcoral;
+    transition: 0.5s;
+}
+/* .userPanel{
+    width: 80%;
+} */
+label{
+    /* width: 100%; */
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+}
+input[type="text"],input[type="password"]{
+    width: 100%;
+    text-align: center;
+    height: 22px;
+    margin-bottom: 20px;
+}
+input{
+    font-family: 'Montserrat', sans-serif;
+}
+.inputs{
+    align-self: center;
+    margin-bottom: 20px;
+}
+.alert{
+    width: 60%;
+    background-color: rgb(253, 169, 169);
+    font-size: larger;
+    text-align: center;
+    align-self: center;
+}
+.confirmation{
+    width: 60%;
+    background-color: rgb(207, 253, 169);
+    font-size: larger;
+    text-align: center;
+    align-self: center;
+}
+#togglePassword{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: -25px; */
+}
+.boton{
+    margin:20px;
+    width: 150px;
+    align-self: center;
+    padding:5px 10px 5px 10px;
+    border: 1px solid rgb(61, 61, 61);
+    border-radius: 5px;
+    background-color: snow;
+    color: green;
+    text-align: center;
+    text-decoration: none;
+}
+.botonDelete{
+    margin:20px;
+    width: 150px;
+    align-self: center;
+    padding:5px 10px 5px 10px;
+    border: 1px solid rgb(61, 61, 61);
+    border-radius: 5px;
+    background-color: rgb(160, 4, 4);
+    color:white;
+    text-align: center;
+    text-decoration: none;
+}
+.botonLogout{
+    margin:60px 20px 20px 20px;
+    width: 150px;
+    align-self: center;
+    padding:5px 10px 5px 10px;
+    border: 1px solid rgb(61, 61, 61);
+    border-radius: 5px;
+    background-color: snow;
+    color: green;
+    text-align: center;
+    text-decoration: none;
+}
+.userAvatar{
+    position:relative;
+    width: 200px;
+    border:2px solid black;
+    border-radius: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.avatarContainer{
+    position: relative;
+    width: 200px;
+    align-self: center;
+}
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modalContent {
+    background-color: #fefefe;
+    margin: 20% auto auto auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+  }
+  /* The Close Button */
+.closeModal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeModal:hover, .closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* #sendButton{
+    disabled:true;
+} */
