@@ -34,7 +34,7 @@ if (isset($_SESSION["noteAdded"]) and $_SESSION["noteAdded"]==1){
 <body>
     <aside class="lateralPanel">
         <a href="taskList.php">My tasks</a>
-        <a href="http://">My notes</a>
+        <a href="noteList.php">My notes</a>
         <a href="userPanel.php">My profile</a>
         <a href="db/logout.php">Logout</a>
     </aside>
