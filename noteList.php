@@ -7,7 +7,7 @@ if (isset($_SESSION["userid"])){
     header ("Location: ../index.php");
     die();
 }
-include "db/getuserElements.php";
+include "db/getUserElements.php";
 $noteAdded="";
 if (isset($_SESSION["noteAdded"]) and $_SESSION["noteAdded"]==1){
     $noteAdded="<p>Note Added</p>";
@@ -22,6 +22,13 @@ if (isset($_SESSION["noteDeleted"]) and $_SESSION["noteDeleted"]==1){
 }else if (isset($_SESSION["noteDeleted"]) and $_SESSION["noteDeleted"]==0){
     $noteAdded="<p>Something went wrong deleting note</p>";
     unset($_SESSION["noteDeleted"]);
+}
+if (isset($_SESSION["noteEdited"]) and $_SESSION["noteEdited"]==1){
+    $noteAdded="<p>Note edited</p>";
+    unset($_SESSION["noteEdited"]);
+}else if (isset($_SESSION["noteEdited"]) and $_SESSION["noteEdited"]==0){
+    $noteAdded="<p>Something went wrong editing note</p>";
+    unset($_SESSION["noteEdited"]);
 }
 ?>
 <!DOCTYPE html>

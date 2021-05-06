@@ -51,12 +51,13 @@ function printNotes($userid){
     $userNotes=getuserNotes($userid);
     if (count($userNotes)>0){
         for($n=0;$n < count($userNotes);$n++){
-            echo "<div class='userNote'>";
-            echo "<h2>".$userNotes[$n]["name"]."</h2>";
-            echo "<p>".$userNotes[$n]["details"]."</p>";
-            echo "<h6>".$userNotes[$n]["creation_time"]."</h6>";
+            $time=date("d-m-Y",strtotime($userNotes[$n]["creation_time"]));
+            echo "<div class='userNote' id='note".$n."'>";
+            echo "<h2 id='name-".$n."'>".$userNotes[$n]["name"]."</h2>";
+            echo "<p id='details-".$n."'>".$userNotes[$n]["details"]."</p>";
+            echo "<h6>Note created: ".$time."</h6>";
             echo "<div class='iconsFlex'>";
-            echo "<img class='icon' src='img/icons/edit.png' title='Edit' onclick='editNote(".$userNotes[$n]["id"].")'>";
+            echo "<img class='icon' src='img/icons/edit.png' title='Edit' onclick='editNote(".$userNotes[$n]["id"].",".$n.")'>";
             echo "<img class='icon' src='img/icons/delete.png' title='Delete' onclick='deleteNote(".$userNotes[$n]["id"].")'>";
             echo "</div></div>";
         }

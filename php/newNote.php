@@ -12,10 +12,10 @@ if (!isset($_SESSION["userid"])){
 }
 include "../db/databaseConnection.php";
 $conn=databaseConnection();
-$noteName=filter_var($_POST["noteName"]);
-$noteDetails=filter_var($_POST["noteDetails"]);
+$noteName=filter_var($_POST["noteName"],FILTER_SANITIZE_STRING);
+$noteDetails=filter_var($_POST["noteDetails"],FILTER_SANITIZE_STRING);
 // print_r($_POST);
-if (strlen($noteName)<41 and strlen($noteDetails)<501){
+if (strlen($noteName)<41 and strlen($noteDetails)<501 and $noteName==$_POST["noteName"] and $noteDetails==$_POST["noteDetails"]){
     $sql="INSERT INTO notes VALUES(NULL, '$noteName', '$noteDetails', '$userid', current_timestamp())";
     if ($conn->query($sql)){
         $_SESSION["noteAdded"]=1;
