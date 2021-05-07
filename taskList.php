@@ -1,21 +1,35 @@
 <?php
 session_start();
-//Check if there's no session initilized
-if (!isset($_SESSION["userid"])){
-    header ("Location: index.php");
-    die();
-}else{
+//Check if the user has a session started
+if (isset($_SESSION["userid"])){
     $userid=$_SESSION["userid"];
+}else{
+    header ("Location: ../index.php");
+    die();
 }
-$noteAdded="";
-if (isset($_SESSION["noteAdded"]) and $_SESSION["noteAdded"]==1){
-    $noteAdded="<p>Note Added</p>";
-    unset($_SESSION["noteAdded"]);
-}else if (isset($_SESSION["noteAdded"]) and $_SESSION["noteAdded"]==0){
-    $noteAdded="<p>Something went wrong adding Note</p>";
-    unset($_SESSION["noteAdded"]);
+include "db/getUserElements.php";
+$taskAdded="";
+if (isset($_SESSION["taskAdded"]) and $_SESSION["taskAdded"]==1){
+    $taskAdded="<p>Task Added</p>";
+    unset($_SESSION["taskAdded"]);
+}else if (isset($_SESSION["taskAdded"]) and $_SESSION["taskAdded"]==0){
+    $taskAdded="<p>Something went wrong adding Task</p>";
+    unset($_SESSION["taskAdded"]);
 }
-// include "db/getUserElements.php";
+if (isset($_SESSION["taskDeleted"]) and $_SESSION["taskDeleted"]==1){
+    $taskAdded="<p>Task Deleted</p>";
+    unset($_SESSION["taskDeleted"]);
+}else if (isset($_SESSION["taskDeleted"]) and $_SESSION["taskDeleted"]==0){
+    $taskAdded="<p>Something went wrong deleting Task</p>";
+    unset($_SESSION["taskDeleted"]);
+}
+if (isset($_SESSION["taskEdited"]) and $_SESSION["taskEdited"]==1){
+    $taskAdded="<p>Task edited</p>";
+    unset($_SESSION["taskEdited"]);
+}else if (isset($_SESSION["taskEdited"]) and $_SESSION["taskEdited"]==0){
+    $taskAdded="<p>Something went wrong editing Task</p>";
+    unset($_SESSION["taskEdited"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,15 +52,14 @@ if (isset($_SESSION["noteAdded"]) and $_SESSION["noteAdded"]==1){
         <a href="userPanel.php">My profile</a>
         <a href="db/logout.php">Logout</a>
     </aside>
+    <div class="tasksContent">
+        <button class="newElement" onclick="formTask()">New task</button>
+        <button class="newElement" onclick="formNote()">New note</button>
+    </div>
+    <div class="createElementMSG"><?php echo $taskAdded ?> </div>
     <section class="userContent">
-        <div class="tasksContent">
-            <button class="newElement" onclick="formTask()">New task</button>
-            <button class="newElement" onclick="formNote()">New note</button>
-        </div>
-        <div id="notes"></div>
-        <div id="tasks"></div>
+        <div id="tasks"><?php echo printTasks($userid);?></div>
     </section>
-    <div class="createElementMSG"><?php echo $noteAdded ?> </div>
     <section class="createElement">
             <div id="newTask"></div>
             <div id="newNote"></div>

@@ -37,6 +37,7 @@ body{
     margin:20% 10px;
     box-shadow: grey 0px 0px 10px;
     text-align: center;
+    width: 70%;
 }
 #todoList{
     width: 90%;

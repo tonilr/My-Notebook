@@ -41,9 +41,6 @@ function getuserNotes($userid){
         while ($note = $notes->fetch_assoc()){
             array_push($userNotes,$note);
         }
-        /* echo "<pre>";
-        print_r($userNotes);
-        echo "</pre>"; */
     }
     return $userNotes;
 }
@@ -67,10 +64,21 @@ function printTasks($userid){
     $userTasks=getuserTasks($userid);
     if (count($userTasks)>0){
         for($n=0;$n < count($userTasks);$n++){
-            echo "<p>".$userTasks[$n]["name"]."</p>";
-            echo "<p>".$userTasks[$n]["details"]."</p>";
-            echo "<p>".$userTasks[$n]["creation_time"]."</p>";
-            echo "<p>".$userTasks[$n]["limit_date"]."</p>";
+            $time=date("d-m-Y",strtotime($userTasks[$n]["creation_time"]));
+            $limitDate=date("d-m-Y",strtotime($userTasks[$n]["limit_date"]));
+            $list_id=$userTasks[$n]["id_lists"];
+            $list="files/$userid/$list_id.txt";
+            $fp=fopen($list,"r");
+            echo "<div class='userTask' id='task".$n."'>";
+            echo "<h2 id='name-".$n."'>".$userTasks[$n]["name"]."</h2>";
+            echo "<p id='details-".$n."'>".$userTasks[$n]["details"]."</p>";
+            echo stream_get_contents($fp);
+            echo "<h4>Limit Date: ".$limitDate."<h4>";
+            echo "<h6>Task created: ".$time."</h6>";
+            echo "<div class='iconsFlex'>";
+            echo "<img class='icon' src='img/icons/edit.png' title='Edit' onclick='editTask(".$userTasks[$n]["id"].",".$n.")'>";
+            echo "<img class='icon' src='img/icons/delete.png' title='Delete' onclick='deleteTask(".$userTasks[$n]["id"].")'>";
+            echo "</div></div>";
         }
     }
 }

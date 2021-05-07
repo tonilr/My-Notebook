@@ -58,7 +58,7 @@ if (isset($_SESSION["noteEdited"]) and $_SESSION["noteEdited"]==1){
     </div>
     <div class="createElementMSG"><?php echo $noteAdded ?> </div>
     <section class="userContent">
-        <div id="notes"><?php echo printNotes($userid);?></div>
+        <div id="tasks"><?php echo printNotes($userid);?></div>
     </section>
     <section class="createElement">
             <div id="newTask"></div>
