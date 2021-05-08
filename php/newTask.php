@@ -22,6 +22,9 @@ if (strlen($taskName)<41 and strlen($taskDetails)<101 and $taskName==$_POST["tas
         for($n=0;$n<=$m;$n++){
             array_push($todoList,$_POST["todo$n"]);
         }
+        if (!is_dir("../files/$userid")){
+            mkdir("../files/$userid");
+        }
         $listIndex="../files/$userid/000index.txt";
         if (file_exists($listIndex)){
             $fpIndex=fopen($listIndex,"r");
@@ -38,9 +41,11 @@ if (strlen($taskName)<41 and strlen($taskDetails)<101 and $taskName==$_POST["tas
         $listFile= "../files/$userid/$indexOfList.txt";
         $fp = fopen($listFile,"w");
         for ($n=0;$n<=$m;$n++){
-            fwrite($fp,"<li>");
-            fwrite($fp,$todoList[$n]);
-            fwrite($fp,"</li>");
+            if ($todoList[$n]!=""){
+                fwrite($fp,"<li>");
+                fwrite($fp,$todoList[$n]);
+                fwrite($fp,"</li>");
+            }
         }
         $fp = fopen($listFile,"r");
         fclose($fp);

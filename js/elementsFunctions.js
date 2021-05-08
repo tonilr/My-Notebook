@@ -64,10 +64,9 @@ function deleteNote($id){
         newNote.style.padding="0px";
     }
 }
-function editNote($id,$noteid){
-    let note=document.getElementById("note"+$noteid);
-    let name=document.getElementById("name-"+$noteid).innerHTML;
-    let details=document.getElementById("details-"+$noteid).innerHTML;
+function editNote($id,$noteNumber){
+    let name=document.getElementById("name-"+$noteNumber).innerHTML;
+    let details=document.getElementById("details-"+$noteNumber).innerHTML;
     let checkForm=document.getElementById("noteForm");
     if (checkForm == null){
         console.log(false);
@@ -84,5 +83,55 @@ function editNote($id,$noteid){
         newNote.innerHTML="";
         newTask.innerHTML="";
         newNote.style.padding="0px";
+    }
+}
+function deleteTask($id){
+    let checkForm=document.getElementById("taskForm");
+    if (checkForm == null){
+        console.log(false);
+        let newTask=document.getElementById("newTask");
+        let newNote=document.getElementById("newNote");
+        let formTask="<form method='POST' action='php/deleteTask.php' class='newForm' id='taskForm'><h3>Delete task?</h3><input type='hidden' name='taskid' value='"+$id+"'><br><input type='submit' value='Delete'><input type='button' value='Cancel' onclick='formTask()'></form>";
+        newTask.innerHTML+=formTask;
+        newNote.innerHTML="";
+        newTask.style.padding="50px";
+        newNote.style.padding="0px";
+    }else{
+        let newTask=document.getElementById("newTask");
+        let newNote=document.getElementById("newNote");
+        newNote.innerHTML="";
+        newTask.innerHTML="";
+        newTask.style.padding="0px";
+    }
+}
+function editTask($id,$taskNumber){
+    let name=document.getElementById("name-"+$taskNumber).innerHTML;
+    let details=document.getElementById("details-"+$taskNumber).innerHTML;
+    let todoList=document.getElementById("list-"+$taskNumber).getElementsByTagName("li");
+    console.log(todoList);
+    // let list=[];
+    let taskList="";
+    for (i=0;i<todoList.length;i++){
+        // list.push(todoList[i].innerHTML);
+        taskList+="<input type='text' name='todo"+i+"' value='"+todoList[i].innerHTML+"'>";
+    }
+    console.log(taskList);
+    let date=document.getElementById("date-"+$taskNumber).getAttribute("value");
+    let checkForm=document.getElementById("noteForm");
+    if (checkForm == null){
+        console.log(false);
+        let newNote=document.getElementById("newNote");
+        let newTask=document.getElementById("newTask");
+        let formTask="<form method='POST' action='php/editTask.php' class='newForm' id='taskForm'><h3>Edit task</h3><input type='hidden' name='taskid' value='"+$id+"'><br><label for='taskName'>Name<input type='text' name='taskName' value='"+name+"'></label><br><label for='taskDetails'>Details<input type='text' name='taskDetails' value='"+details+"'></label><label for='todoList' id='todoList'>To-do List<img class='icon' src='img/icons/add.png' onclick='addTodo()'><input type='hidden' id='listNum' name='listNum' value='0'>"+taskList+"</label><label for='taskDate'>Limit date<input type='date' name='taskDate' value='"+date+"'></label><input type='submit' value='Edit'><input type='button' value='Cancel' onclick='formTask()'></form>";
+        newTask.innerHTML+=formTask;
+        newNote.innerHTML="";
+        newTask.style.padding="50px";
+        newNote.style.padding="0px";
+    }else{
+        let newTask=document.getElementById("newTask");
+        let newNote=document.getElementById("newNote");
+        newNote.innerHTML="";
+        newTask.innerHTML="";
+        newTask.style.padding="0px";
     }
 }
