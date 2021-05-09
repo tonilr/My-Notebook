@@ -3,7 +3,7 @@
 session_start();
 if (isset($_SESSION["userid"])){
     // header ("Location: userPanel.php");
-    header ("Location: taskList.php");
+    header ("Location: userPanel.php");
     die();
 }
 //Check if the user wants to remember his username

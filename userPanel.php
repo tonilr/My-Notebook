@@ -79,6 +79,7 @@ if ($result->num_rows>0){
     <title>User Panel</title>
 </head>
 <body id="userPanel">
+    <?php include "elements/topBar.html";?>
     <section class="mainContent">
         <h1>User panel</h1>
         <h3 id="wellcomeMessage">Hello <?php echo $data["username"];?>!</h3>
@@ -117,9 +118,6 @@ if ($result->num_rows>0){
         </form>
         <form action="db/deleteAccount.php" method="POST">
             <input type="submit" value="Delete account"  class="botonDelete">
-        </form>
-        <form action="db/logout.php" method="POST" class="signupForm">
-            <input type="submit" value="Logout" class="botonLogout">
         </form>
     </section>
 </body>

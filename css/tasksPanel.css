@@ -34,7 +34,7 @@ body{
     border-radius: 25px;
     z-index:100;
     position:fixed;
-    margin:20% 10px;
+    margin:10px;
     box-shadow: grey 0px 0px 10px;
     text-align: center;
     width: 70%;
@@ -48,11 +48,33 @@ body{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+hr{
+    width: 90%;
+}
+.userElements{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.elementName{
+    align-self: center;
+}
 .userNote{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: yellow;
+    box-shadow: grey 0px 0px 10px;
+    border-radius: 0px 0px 5px 5px;
+    padding: 15px;
+    width: 300px;
+    margin: 10px;  
+}
+.userTask{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:whitesmoke;
     box-shadow: grey 0px 0px 10px;
     border-radius: 0px 0px 5px 5px;
     padding: 15px;
@@ -74,4 +96,13 @@ body{
     border-radius: 10px;
     margin:5px;
     padding:0px 10px;
+}
+.tasksContent{
+    margin-top: 60px;
+}
+@media (max-width: 720px){
+    .createElement{
+        width: 95%;
+    }
+    
 }

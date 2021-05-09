@@ -4,7 +4,7 @@ function formTask(){
     if (checkForm == null){
         let newTask=document.getElementById("newTask");
         let newNote=document.getElementById("newNote");
-        let formTask="<form method='POST' action='php/newTask.php' class='newForm' id='taskForm'><label for='taskName'>Task Name</label><input type='text' name='taskName'><label for='taskDetails'>Details<input type='text' name='taskDetails'></label><div><label for='todoList' id='todoList'>Tod-do list<img class='icon' src='img/icons/add.png' onclick='addTodo()'><input type='hidden' id='listNum' name='listNum' value='0'><input type='text' name='todo0'</label></div><label name='taskDate'>Date<input type='date' name='taskDate'></label><br><input type='submit'><input type='button' value='Cancel' onclick='formTask()'></form>";
+        let formTask="<form method='POST' action='php/newTask.php' class='newForm' id='taskForm'><label for='taskName'>Task Name</label><input type='text' name='taskName'><label for='taskDetails'>Details<input type='text' name='taskDetails'></label><div><label for='todoList' id='todoList'>Tod-do list<img class='icon' src='img/icons/add.png' onclick='addTodo()'><input type='hidden' id='listNum' name='listNum' value='0'><input type='text' name='todo0'</label></div><label name='taskDate'>Date<br><input type='date' name='taskDate'></label><br><input type='submit'><input type='button' value='Cancel' onclick='formTask()'></form>";
         newTask.innerHTML+=formTask;
         newNote.innerHTML="";
         newTask.style.padding="50px";
@@ -122,7 +122,7 @@ function editTask($id,$taskNumber){
         console.log(false);
         let newNote=document.getElementById("newNote");
         let newTask=document.getElementById("newTask");
-        let formTask="<form method='POST' action='php/editTask.php' class='newForm' id='taskForm'><h3>Edit task</h3><input type='hidden' name='taskid' value='"+$id+"'><br><label for='taskName'>Name<input type='text' name='taskName' value='"+name+"'></label><br><label for='taskDetails'>Details<input type='text' name='taskDetails' value='"+details+"'></label><label for='todoList' id='todoList'>To-do List<img class='icon' src='img/icons/add.png' onclick='addTodo()'><input type='hidden' id='listNum' name='listNum' value='0'>"+taskList+"</label><label for='taskDate'>Limit date<input type='date' name='taskDate' value='"+date+"'></label><input type='submit' value='Edit'><input type='button' value='Cancel' onclick='formTask()'></form>";
+        let formTask="<form method='POST' action='php/editTask.php' class='newForm' id='taskForm'><h3>Edit task</h3><input type='hidden' name='taskid' value='"+$id+"'><br><label for='taskName'>Name<input type='text' name='taskName' value='"+name+"'></label><br><label for='taskDetails'>Details<input type='text' name='taskDetails' value='"+details+"'></label><label for='todoList' id='todoList'>To-do List<img class='icon' src='img/icons/add.png' onclick='addTodo()'><input type='hidden' id='listNum' name='listNum' value='0'>"+taskList+"</label><label for='taskDate'>Limit date<br><input type='date' name='taskDate' value='"+date+"'></label><br><input type='submit' value='Edit'><input type='button' value='Cancel' onclick='formTask()'></form>";
         newTask.innerHTML+=formTask;
         newNote.innerHTML="";
         newTask.style.padding="50px";

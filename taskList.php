@@ -46,19 +46,13 @@ if (isset($_SESSION["taskEdited"]) and $_SESSION["taskEdited"]==1){
     <title>Task List</title>
 </head>
 <body>
-    <aside class="lateralPanel">
-        <a href="taskList.php">My tasks</a>
-        <a href="noteList.php">My notes</a>
-        <a href="userPanel.php">My profile</a>
-        <a href="db/logout.php">Logout</a>
-    </aside>
+    <?php include "elements/topBar.html";?>
     <div class="tasksContent">
         <button class="newElement" onclick="formTask()">New task</button>
-        <button class="newElement" onclick="formNote()">New note</button>
     </div>
     <div class="createElementMSG"><?php echo $taskAdded ?> </div>
     <section class="userContent">
-        <div id="tasks"><?php echo printTasks($userid);?></div>
+        <div id="tasks" class="userElements"><?php echo printTasks($userid);?></div>
     </section>
     <section class="createElement">
             <div id="newTask"></div>

@@ -11,7 +11,8 @@ body{
     text-align: center;
 }
 .mainContent{
-    min-width: 600px;
+    width: 90%;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +20,7 @@ body{
     border: 1px solid rgb(60, 60, 60);
     border-radius: 3px;
     padding: 40px 20px 40px 20px;
-    margin: 20px 0px 20px 0px;
+    margin: 60px 0px 20px 0px;
     background-color: ghostwhite;
 }
 .mainContentAlert{
@@ -35,8 +36,15 @@ body{
 #mainPage{
     height: 100vh;
 }
-#userPanel{
-    height: 100vh;
+.topBar{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    background-color: aliceblue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 #mainUserPanel{
     display: flex;
@@ -126,6 +134,7 @@ input{
     /* margin-top: -25px; */
 }
 .boton{
+    align-self: center;
     margin:20px;
     width: 150px;
     align-self: center;
@@ -137,7 +146,18 @@ input{
     text-align: center;
     text-decoration: none;
 }
+.botonBar{
+    align-self: center;
+    width: 150px;
+    padding:5px 10px 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
 .botonDelete{
+    align-self: center;
     margin:20px;
     width: 150px;
     align-self: center;
@@ -150,6 +170,7 @@ input{
     text-decoration: none;
 }
 .botonLogout{
+    align-self: center;
     margin:60px 20px 20px 20px;
     width: 150px;
     align-self: center;
@@ -168,8 +189,13 @@ input{
     border-radius: 300px;
     height: 200px;
     object-fit: cover;
+    margin-bottom: 20px;
 }
-
+.userShortcuts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .avatarContainer{
     position: relative;
@@ -213,3 +239,12 @@ input{
 /* #sendButton{
     disabled:true;
 } */
+@media (max-width: 720px){
+    .mainContent{
+        width: 90%;
+    }
+    .signupForm{
+        width: 100%;
+        min-width: unset;
+    }
+}

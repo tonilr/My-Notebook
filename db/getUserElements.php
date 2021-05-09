@@ -50,7 +50,7 @@ function printNotes($userid){
         for($n=0;$n < count($userNotes);$n++){
             $time=date("d-m-Y",strtotime($userNotes[$n]["creation_time"]));
             echo "<div class='userNote' id='note".$n."'>";
-            echo "<h2 id='name-".$n."'>".$userNotes[$n]["name"]."</h2>";
+            echo "<h2 id='name-".$n."' class='elementName'>".$userNotes[$n]["name"]."</h2><hr>";
             echo "<p id='details-".$n."'>".$userNotes[$n]["details"]."</p>";
             echo "<h6>Note created: ".$time."</h6>";
             echo "<div class='iconsFlex'>";
@@ -70,7 +70,7 @@ function printTasks($userid){
             $list="files/$userid/$list_id.txt";
             $fp=fopen($list,"r");
             echo "<div class='userTask' id='task".$n."'>";
-            echo "<h2 id='name-".$n."'>".$userTasks[$n]["name"]."</h2>";
+            echo "<h2 id='name-".$n."' class='elementName'>".$userTasks[$n]["name"]."</h2><hr>";
             echo "<p id='details-".$n."'>".$userTasks[$n]["details"]."</p>";
             echo "<ul id='list-".$n."'>";
             echo stream_get_contents($fp);
