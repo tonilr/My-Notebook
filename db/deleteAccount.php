@@ -22,6 +22,22 @@ if(isset($_POST["password"]) and $_POST["password"]!=NULL){
     // echo $data["password"]."<br>";
     //Check if the password is correct
     if(password_verify($pass,$data["password"])){
+        $sql="DELETE FROM tasks where id_user=$userid";
+        $conn->query($sql);
+        $sql="DELETE FROM notes where id_user=$userid";
+        $conn->query($sql);
+        $dir="../files/$userid/*";
+        $files = glob($dir); // get all file names
+        foreach($files as $file){ // iterate files
+          if(is_file($file)) {
+            unlink($file); // delete file
+          }
+        }
+        if(rmdir("../files/$userid/")){
+            echo true;
+        }else{
+            echo false;
+        }
         $sql="DELETE FROM users WHERE id=$userid";
         $conn->query($sql);
         // echo "usuario borrado";
@@ -41,7 +57,6 @@ if(isset($_POST["password"]) and $_POST["password"]!=NULL){
         header ("Location: deleteAccount.php");
         die();
     }
-    // echo $data["password"];
 }
 ?>
 <!DOCTYPE html>

@@ -75,7 +75,7 @@ function printTasks($userid){
             echo "<ul id='list-".$n."'>";
             echo stream_get_contents($fp);
             echo "</ul>";
-            echo "<h4>Limit Date</h4><h4 id='date-".$n."' value='".$userTasks[$n]["limit_date"]."'>".$limitDate."</h4>";
+            echo "<div class='limitDate'><h4>Limit Date</h4><h4 id='date-".$n."' value='".$userTasks[$n]["limit_date"]."'>".$limitDate."</h4></div>";
             echo "<h6>Task created: ".$time."</h6>";
             echo "<div class='iconsFlex'>";
             echo "<img class='icon' src='img/icons/edit.png' title='Edit' onclick='editTask(".$userTasks[$n]["id"].",".$n.")'>";
