@@ -1,4 +1,5 @@
 <?php
+//Some checks to show messages
 session_start();
 if (isset($_SESSION["fieldMissing"]) and $_SESSION["fieldMissing"]==1){
     echo "<p class='alert'>You must fill all the fields in the form</p>";
@@ -16,7 +17,6 @@ if (isset($_SESSION["connectionError"]) and $_SESSION["connectionError"]==1){
     echo "<p class='alert'>There was an error creating the account</p>";
     $_SESSION["connectionError"]=0;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

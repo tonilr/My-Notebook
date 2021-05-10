@@ -1,4 +1,5 @@
 let todoListIndex=0;
+//Print the form to enter the task
 function formTask(){
     let checkForm=document.getElementById("taskForm");
     if (checkForm == null){
@@ -19,6 +20,7 @@ function formTask(){
         todoListIndex=0;
     }
 }
+//Adds a new todo field to the task form
 function addTodo(){
     let input=document.createElement("input");
     input.type="text";
@@ -27,6 +29,7 @@ function addTodo(){
     input.name="todo"+todoListIndex;
     todoList.appendChild(input);
 }
+//Print the form to add a note
 function formNote(){
     let checkForm=document.getElementById("noteForm");
     if (checkForm == null){
@@ -45,6 +48,7 @@ function formNote(){
         newNote.style.padding="0px";
     }
 }
+//Print the form to delete a note
 function deleteNote($id){
     let checkForm=document.getElementById("noteForm");
     if (checkForm == null){
@@ -64,6 +68,7 @@ function deleteNote($id){
         newNote.style.padding="0px";
     }
 }
+//Print the form to edit a note
 function editNote($id,$noteNumber){
     let name=document.getElementById("name-"+$noteNumber).innerHTML;
     let details=document.getElementById("details-"+$noteNumber).innerHTML;
@@ -85,6 +90,7 @@ function editNote($id,$noteNumber){
         newNote.style.padding="0px";
     }
 }
+//Print the form to delete a task
 function deleteTask($id){
     let checkForm=document.getElementById("taskForm");
     if (checkForm == null){
@@ -104,18 +110,15 @@ function deleteTask($id){
         newTask.style.padding="0px";
     }
 }
+//Print the form to edit a task
 function editTask($id,$taskNumber){
     let name=document.getElementById("name-"+$taskNumber).innerHTML;
     let details=document.getElementById("details-"+$taskNumber).innerHTML;
     let todoList=document.getElementById("list-"+$taskNumber).getElementsByTagName("li");
-    console.log(todoList);
-    // let list=[];
     let taskList="";
     for (i=0;i<todoList.length;i++){
-        // list.push(todoList[i].innerHTML);
         taskList+="<input type='text' name='todo"+i+"' value='"+todoList[i].innerHTML+"'>";
     }
-    console.log(taskList);
     let date=document.getElementById("date-"+$taskNumber).getAttribute("value");
     let checkForm=document.getElementById("noteForm");
     if (checkForm == null){

@@ -8,6 +8,7 @@ if (isset($_SESSION["userid"])){
     die();
 }
 include "db/getUserElements.php";
+//Some check to show messages
 $taskAdded="";
 if (isset($_SESSION["taskAdded"]) and $_SESSION["taskAdded"]==1){
     $taskAdded="<p>Task Added</p>";

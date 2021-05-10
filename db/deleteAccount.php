@@ -18,8 +18,6 @@ if(isset($_POST["password"]) and $_POST["password"]!=NULL){
     $sql="SELECT password FROM users where id=$userid";
     $result=$conn->query($sql);
     $data=$result->fetch_assoc();
-    // echo $pass."<br>";
-    // echo $data["password"]."<br>";
     //Check if the password is correct
     if(password_verify($pass,$data["password"])){
         $sql="DELETE FROM tasks where id_user=$userid";
@@ -40,9 +38,7 @@ if(isset($_POST["password"]) and $_POST["password"]!=NULL){
         }
         $sql="DELETE FROM users WHERE id=$userid";
         $conn->query($sql);
-        // echo "usuario borrado";
         //Delete the cookie and go back to index
-        // setcookie("userid","",time()-3600,"/");
         session_destroy();
         session_start();
         $_SESSION["accountDeleted"]=1;

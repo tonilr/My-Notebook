@@ -8,6 +8,7 @@ if (isset($_SESSION["userid"])){
     die();
 }
 include "db/getUserElements.php";
+//Some checks to show messages
 $noteAdded="";
 if (isset($_SESSION["noteAdded"]) and $_SESSION["noteAdded"]==1){
     $noteAdded="<p>Note Added</p>";
