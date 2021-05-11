@@ -11,6 +11,10 @@ if (!isset($_SESSION["userid"])){
 }else{
     $userid=$_SESSION["userid"];
 }
+/* echo "<pre>";
+print_r ($_POST);
+echo "</pre>";
+ */
 include "../db/databaseConnection.php";
 $conn=databaseConnection();
 //Sanitize the fields
@@ -59,4 +63,4 @@ if (strlen($taskName)<41 and strlen($taskDetails)<101 and $taskName==$_POST["tas
     header ("Location: ../taskList.php");
     die();
 }
-    ?>
+?>

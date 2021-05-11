@@ -66,19 +66,20 @@ function printTasks($userid){
         for($n=0;$n < count($userTasks);$n++){
             $time=date("d-m-Y",strtotime($userTasks[$n]["creation_time"]));
             $limitDate=date("d-m-Y",strtotime($userTasks[$n]["limit_date"]));
-            $list_id=$userTasks[$n]["id_lists"];
-            $list="files/$userid/$list_id.txt";
+            $listid=$userTasks[$n]["id_lists"];
+            $list="files/$userid/$listid.txt";
             $fp=fopen($list,"r");
             echo "<div class='userTask' id='task".$n."'>";
             echo "<h2 id='name-".$n."' class='elementName'>".$userTasks[$n]["name"]."</h2><hr>";
             echo "<p id='details-".$n."'>".$userTasks[$n]["details"]."</p>";
+            echo "<input type='hidden' name='list_id' value='$listid'>";
             echo "<ul id='list-".$n."'>";
             echo stream_get_contents($fp);
             echo "</ul>";
             echo "<div class='limitDate'><h4>Limit Date</h4><h4 id='date-".$n."' value='".$userTasks[$n]["limit_date"]."'>".$limitDate."</h4></div>";
             echo "<h6>Task created: ".$time."</h6>";
             echo "<div class='iconsFlex'>";
-            echo "<img class='icon' src='img/icons/edit.png' title='Edit' onclick='editTask(".$userTasks[$n]["id"].",".$n.")'>";
+            echo "<img class='icon' src='img/icons/edit.png' title='Edit' onclick='editTask(".$userTasks[$n]["id"].",".$n.",".$listid.")'>";
             echo "<img class='icon' src='img/icons/delete.png' title='Delete' onclick='deleteTask(".$userTasks[$n]["id"].")'>";
             echo "</div></div>";
         }
