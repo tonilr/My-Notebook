@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_POST["noteid"]) or $_POST["noteid"]==""){
+if (!isset($_POST["noteid"]) or $_POST["noteid"]=="" or $_POST["name"]=="" or $_POST["details"]==""){
     header ("Location: ../noteList.php");
     die();
 }

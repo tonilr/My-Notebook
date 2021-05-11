@@ -1,7 +1,7 @@
 <?php
 session_start();
 //Check if the fields are filled
-if (!isset($_POST["taskid"]) or $_POST["taskid"]=="" or $_POST["todo0"]==""){
+if (!isset($_POST["taskid"]) or $_POST["taskid"]=="" or $_POST["taskName"]=="" or $_POST["taskDetails"]==""){
     header ("Location: ../taskList.php");
     die();
 }
